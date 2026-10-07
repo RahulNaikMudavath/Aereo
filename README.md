@@ -136,13 +136,13 @@ pip install -r requirements.txt
 Start the development server with **Uvicorn**:
 
 ```bash
-uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8080
 ```
 
 Once running, access:
-- **Interactive Swagger UI**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-- **Alternative ReDoc**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
-- **Health Check**: [http://127.0.0.1:8000/health](http://127.0.0.1:8000/health)
+- **Interactive Swagger UI**: [http://127.0.0.1:8080/docs](http://127.0.0.1:8080/docs)
+- **Alternative ReDoc**: [http://127.0.0.1:8080/redoc](http://127.0.0.1:8080/redoc)
+- **Health Check**: [http://127.0.0.1:8080/health](http://127.0.0.1:8080/health)
 
 ---
 
@@ -238,7 +238,7 @@ tests/test_api.py::test_verify_certificate_endpoint PASSED               [100%]
 - **Endpoint**: `GET /api/jobs/{job_id}`
 - **Curl**:
 ```bash
-curl -X GET "http://127.0.0.1:8000/api/jobs/e2f7b8a1-c309-410a-8bf8-013346d2cb1e"
+curl -X GET "http://127.0.0.1:8080/api/jobs/e2f7b8a1-c309-410a-8bf8-013346d2cb1e"
 ```
 - **Response (`200 OK`)**:
 ```json
@@ -254,7 +254,7 @@ curl -X GET "http://127.0.0.1:8000/api/jobs/e2f7b8a1-c309-410a-8bf8-013346d2cb1e
   "failed_count": 1,
   "created_at": "2026-10-07T15:50:00Z",
   "completed_at": "2026-10-07T15:50:02Z",
-  "download_all_url": "http://127.0.0.1:8000/api/jobs/e2f7b8a1-c309-410a-8bf8-013346d2cb1e/download-all",
+  "download_all_url": "http://127.0.0.1:8080/api/jobs/e2f7b8a1-c309-410a-8bf8-013346d2cb1e/download-all",
   "certificates": [
     {
       "id": "d09436fc-31ad-4673-90d5-bfb6df7d1a50",
@@ -263,7 +263,7 @@ curl -X GET "http://127.0.0.1:8000/api/jobs/e2f7b8a1-c309-410a-8bf8-013346d2cb1e
       "status": "COMPLETED",
       "file_name": "e2f7b8a1_d09436fc_Alice_Johnson.pdf",
       "error_message": null,
-      "download_url": "http://127.0.0.1:8000/api/certificates/d09436fc-31ad-4673-90d5-bfb6df7d1a50/download",
+      "download_url": "http://127.0.0.1:8080/api/certificates/d09436fc-31ad-4673-90d5-bfb6df7d1a50/download",
       "created_at": "2026-10-07T15:50:00Z",
       "completed_at": "2026-10-07T15:50:01Z"
     },
@@ -288,7 +288,7 @@ curl -X GET "http://127.0.0.1:8000/api/jobs/e2f7b8a1-c309-410a-8bf8-013346d2cb1e
 - **Endpoint**: `GET /api/certificates/{certificate_id}/download`
 - **Curl**:
 ```bash
-curl -O -J "http://127.0.0.1:8000/api/certificates/{certificate_id}/download"
+curl -O -J "http://127.0.0.1:8080/api/certificates/{certificate_id}/download"
 ```
 Returns binary stream with headers:
 - `Content-Type: application/pdf` or `image/png`
@@ -300,7 +300,7 @@ Returns binary stream with headers:
 - **Endpoint**: `GET /api/jobs/{job_id}/download-all`
 - **Curl**:
 ```bash
-curl -O -J "http://127.0.0.1:8000/api/jobs/{job_id}/download-all"
+curl -O -J "http://127.0.0.1:8080/api/jobs/{job_id}/download-all"
 ```
 Packages all successfully generated certificates in the job into a structured `.zip` file with sanitized names (`01_Alice_Johnson_certificate.pdf`, `02_Bob_Smith_certificate.pdf`, etc.).
 
