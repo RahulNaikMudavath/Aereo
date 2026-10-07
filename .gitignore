@@ -1,0 +1,30 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Database
+*.db
+*.sqlite3
+
+# Generated certificate files and media
+storage/
+generated_certs/
+temp/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.swp
